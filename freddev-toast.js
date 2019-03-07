@@ -55,6 +55,7 @@ class FreddevToast extends HTMLElement {
     if (!template) {
       template = document.createElement('template');
       template.innerHTML = this.constructor.template;
+      // Let's keep Edge happy.
       window.ShadyCSS && window.ShadyCSS.prepareTemplate(template, 'freddev-toast');
       this.constructor.cache[this.constructor.name] = template;
     }
