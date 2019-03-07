@@ -1,8 +1,6 @@
 class FreddevToast extends HTMLElement {
-  constructor() {
-    super();
-    this.root = this.attachShadow({ mode: 'open' });
-    this.root.innerHTML = `
+  static get template() {
+    return `
       <style>
         :host {
           background-color: var(--fred-toast-background, #d84315);
@@ -40,6 +38,17 @@ class FreddevToast extends HTMLElement {
       <div class="close">X</div>
       <slot></slot>
     `;
+  }
+
+  constructor() {
+    super();
+    const template = document.createElement('template');
+    template.innerHTML = this.constructor.template;
+    // Let's keep Edge happy.
+    window.ShadyCSS && window.ShadyCSS.prepareTemplate(template, 'freddev-toast');
+    this.root = this.attachShadow({ mode: 'open' });
+    const node = template.content.cloneNode(true);
+    this.root.appendChild(node);
 
     this.root.querySelector('.close').addEventListener('click', (e) => this.close());
   }
