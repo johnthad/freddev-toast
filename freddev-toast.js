@@ -1,8 +1,6 @@
 class FreddevToast extends HTMLElement {
-  constructor() {
-    super();
-    this.root = this.attachShadow({ mode: 'open' });
-    this.root.innerHTML = `
+  static get template() {
+    return `
       <style>
         :host {
           background-color: var(--fred-toast-background, #d84315);
@@ -40,7 +38,26 @@ class FreddevToast extends HTMLElement {
       <div class="close">X</div>
       <slot></slot>
     `;
+  }
 
+  static get cache() {
+    this._cache = this._cache || {};
+    return this._cache;
+  }
+
+  constructor() {
+    super();
+
+    let template = this.constructor.cache[this.constructor.name];
+    if (!template) {
+      template = document.createElement('template');
+      template.innerHTML = this.constructor.template;
+      this.constructor.cache[this.constructor.name] = template;
+    }
+
+    const node = template.content.cloneNode(true);
+    this.root = this.attachShadow({ mode: 'open' });
+    this.root.appendChild(node);
     this.root.querySelector('.close').addEventListener('click', (e) => this.close());
   }
 
