@@ -1,0 +1,28 @@
+{
+  "name": "freddev-toast",
+  "version": "1.0.0",
+  "description": "Simple web component demo.",
+  "main": "index.html",
+  "author": "Thad Humphries",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github:johnthad/freddev-toast"
+  },
+  "bugs": {
+    "url": "https://github.com/johnthad/freddev-toast/issues"
+  },
+  "keywords": [
+    "web-components",
+    "web-component",
+    "meetup",
+    "freddev"
+  ],
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.2.7"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-google": "^0.11"
+  }
+}

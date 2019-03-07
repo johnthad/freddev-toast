@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Shadow knows!</title>
+
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <style>
+      body {
+        /* color: red; */
+      }
+      body.dark {
+        background: black;
+      }
+      freddev-toast {
+        display: block;
+        /* --fred-toast-color: blue; */
+      }
+    </style>
+  </head>
+
+  <body role="main" class="">
+    <h1>The Shadow knows!</h1>
+
+    <p>Now things get interesting...</p>
+
+    <freddev-toast>Fred</freddev-toast>
+
+    <script>
+      class FreddevToast extends HTMLElement {
+        constructor() {
+          super();
+          this.root = this.attachShadow({ mode: 'open' });
+          this.root.innerHTML = `
+            <style>
+              :host {
+                // color: green;
+                // color: var(--fred-toast-color, #000);
+                font-size: 20px;
+              }
+              :host-context(.dark) {
+                color: white;
+                background: #999;
+              }
+            </style>
+            <p>Hello <slot></slot>!</p>`;
+        }
+      }
+      window.customElements.define('freddev-toast', FreddevToast);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A boring custom element</title>
+
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <style>
+      freddev-toast {
+        display: block;
+        margin-top: 20px;
+        width: 200px;
+        height: 25px;
+        border: 2px solid blue;
+      }
+    </style>
+  </head>
+
+  <body role="main">
+    <h1>A boring custom element</h1>
+
+    <p>For now it's just empty space.</p>
+
+    <freddev-toast></freddev-toast>
+
+    <script>
+      class FreddevToast extends HTMLElement {
+        // Web component lifecycle hooks.
+        constructor() {
+          super(); // Always call super() first in the constructor.
+          // Initialize class properties here.
+          // Do *not* add elements the to DOM here.
+        }
+
+        connectedCallback() {
+          // Called when added to the DOM.
+          // document.querySelector('freddev-toast').innerHTML = 'Hey Fred!';
+        }
+
+        disconnectedCallback() {
+          // Called when removed from the DOM.
+        }
+
+        adoptedCallback() {
+          // Called when moved to a new page.
+        }
+
+        attributeChangedCallback(attrName, oldVal, newVal) {
+          // Called when an observedAttribute[] is changed.
+        }
+      }
+      window.customElements.define('freddev-toast', FreddevToast);
+    </script>
+  </body>
+</html>
