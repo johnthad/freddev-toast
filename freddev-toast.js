@@ -44,12 +44,6 @@ class FreddevToast extends HTMLElement {
     this.root.querySelector('.close').addEventListener('click', (e) => this.close());
   }
 
-  static get observedAttributes() {
-    return [];
-  }
-
-  attributeChangedCallback(attrName, oldVal, newVal) {}
-
   open() {
     this.className = 'open';
   }
