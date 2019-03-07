@@ -45,13 +45,20 @@ class FreddevToast extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return [];
+    return ['duration'];
   }
 
-  attributeChangedCallback(attrName, oldVal, newVal) {}
+  attributeChangedCallback(attrName, oldVal, newVal) {
+    if (attrName === 'duration') {
+      this.duration = newVal;
+    }
+  }
 
   open() {
     this.className = 'open';
+    if (this.duration) {
+      setTimeout(() => this.close(), this.duration * 1000);
+    }
   }
 
   close() {
