@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>The Template sees its shadow.</title>
+
+    <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <style>
+      body {
+        color: red;
+      }
+      body.dark {
+        background: black;
+      }
+      freddev-toast {
+        display: block;
+        --fred-toast-color: blue;
+      }
+    </style>
+  </head>
+
+  <body role="main" class="">
+    <h1>The Template sees its shadow.</h1>
+
+    <p>Now things get <em>very</em> interesting...</p>
+
+    <template id="toasty">
+      <style>
+        :host {
+          color: var(--fred-toast-color, #000);
+          font-size: 20px;
+        }
+        :host-context(.dark) {
+          color: white;
+          background: #999;
+        }
+      </style>
+      <p>Hello <slot></slot>!</p>
+    </template>
+
+    <freddev-toast>Fred</freddev-toast>
+
+    <script>
+      const template = document.getElementById('toasty');
+      class FreddevToast extends HTMLElement {
+        constructor() {
+          super();
+          this.root = this.attachShadow({ mode: 'open' });
+          // Let's keep Edge happy.
+          window.ShadyCSS && window.ShadyCSS.prepareTemplate(template, 'freddev-toast');
+          const node = template.content.cloneNode(true);
+          this.shadowRoot.appendChild(node);
+        }
+      }
+      window.customElements.define('freddev-toast', FreddevToast);
+    </script>
+  </body>
+</html>
