@@ -3,27 +3,36 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>A Simple Toast Element</title>
+    <title>Show Two Toast Elements</title>
 
     <script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
     <script src="freddev-toast.js"></script>
     <style>
       body {
-        color: green;
+        color: black;
         --fred-toast-background: blue;
+      }
+
+      freddev-toast.right {
+        right: 30px;
+      }
+
+      freddev-toast.left {
+        left: 30px;
       }
     </style>
   </head>
 
   <body role="main">
-    <h1>A Simple Toast Element</h1>
+    <h1>Show Two Toast Elements</h1>
 
     <button id="toggle">Open Toast</button>
-    <freddev-toast duration="3">Your toast message here.</freddev-toast>
+    <freddev-toast duration="5" class="right">Jokers to the right.</freddev-toast>
+    <freddev-toast duration="3" class="left">Clowns to the left of me.</freddev-toast>
 
     <script>
       document.querySelector('#toggle').addEventListener('click', (e) => {
-        document.querySelector('freddev-toast').open();
+        document.querySelectorAll('freddev-toast').forEach((wc) => wc.open());
       });
     </script>
   </body>
