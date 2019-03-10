@@ -1,6 +1,6 @@
 # freddev-toast
 
-This is a simple web component demo, adapted from a [presentation by Chris Lorenzo](https://github.com/ComcastSamples/wc-toast) at the 2018 RVA JavaScript Conference in Richmond, Virginia. This presentation was made at the [Fredericksburg Developers Group (FredDev)](https://www.meetup.com/FredDev/) meetup of [March 12, 2019](https://www.meetup.com/FredDev/events/256946280/).
+This is a simple web component demo, adapted from a [presentation by Chris Lorenzo](https://github.com/ComcastSamples/wc-toast) at the 2018 RVA JavaScript Conference in Richmond, Virginia. This presentation was prepared for the [Fredericksburg Developers Group (FredDev)](https://www.meetup.com/FredDev/) meetup of [March 12, 2019](https://www.meetup.com/FredDev/events/256946280/).
 
 ## Installing
 
@@ -12,7 +12,7 @@ This demo is _not_ suitable for IE11. That would have required [babel](https://b
 
 ## Individual Demos
 
-These demos are on the master branch. The do not vary between branches.
+These demos are on the master branch. They do not vary between branches.
 
 - `template-ex.html`: A simple `<template>` example.
 - `custom-element-ex.html`: A simple custom element example with lifecycle methods.
@@ -25,5 +25,5 @@ The `master` branch is the final web component. The other branches break down as
 
 - `step1`: Create a toast component that we can open and close.
 - `step2`: Add a `duration` attribute, and close the toast after _n_ seconds.
-- `step3`: Cache the parsed template.
-- `step4`|`master`: Use to custom elements on the same page.
+- `step3`: Same as `step3` but cache the parsed template.
+- `step4`|`master`: Use two custom elements on the same page.
