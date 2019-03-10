@@ -12,12 +12,12 @@ This demo is _not_ suitable for IE11. That would have required [babel](https://b
 
 ## Individual Demos
 
-These demos are on the master branch. They do not vary between branches.
+These demos are on the master branch (ignore them on the other branches).
 
 - `template-ex.html`: A simple `<template>` example.
 - `custom-element-ex.html`: A simple custom element example with lifecycle methods.
-- `shadowdom-ex.html`: Attaching the Shadow DOM inside a custom element (introduces `<slot>`).
-- `template-shadow.html`: Instantiating a `<template>` in a custom element, and attaching the Shadow DOM.
+- `shadowdom-ex.html`: Attaching the Shadow DOM inside a custom element. Also introduces `<slot>`.
+- `template-shadow.html`: Instantiating a `<template>` in a custom element, and attaching the Shadow DOM. Also eleborates on slots.
 
 ## Element Demo
 

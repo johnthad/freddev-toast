@@ -38,9 +38,10 @@
         }
       </style>
       <p>Hello <slot></slot>!</p>
+      <p><slot name="msg"></slot></p>
     </template>
 
-    <freddev-toast>Fred</freddev-toast>
+    <freddev-toast>Fred<span slot="msg">It gets better.</span></freddev-toast>
 
     <script>
       const template = document.getElementById('toasty');
