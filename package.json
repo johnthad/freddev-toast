@@ -18,11 +18,9 @@
     "meetup",
     "freddev"
   ],
-  "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.7"
-  },
   "devDependencies": {
-    "eslint": "^5.12.1",
-    "eslint-config-google": "^0.11"
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.3.2"
   }
 }
